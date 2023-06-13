@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Raleway", sans-serif;
+}
+
+:root {
+  --gradient: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+  --pale-blue: hsl(243, 100%, 93%);
+  --greyish-blue: hsl(229, 7%, 55%);
+  --dark-blue: hsl(228, 56%, 26%);
+  --very-dark-blue: hsl(229, 57%, 11%);
+}
+
+/* Parent */
+section.parent {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--very-dark-blue);
+  background-image: url(../../images/bg-desktop.png);
+  background-size: 100% 50%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Content Section */
+.parent .main-content {
+  width: 70%;
+  height: 200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* First Component */
+.parent .actions {
+  background-color: var(--dark-blue);
+  padding: 25px;
+  border-radius: 10px 50% 10px 10px;
+  border-top-right-radius: 30% 50%;
+  row-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  border-top-right-radius: 30% 50%;
+  width: 35%;
+  position: relative;
+}
+
+.parent .actions .icons {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  position: absolute;
+  bottom: 20%;
+  left: 20%;
+}
+
+.parent .actions .icon-cont {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--very-dark-blue);
+  border-radius: 10px;
+}
+
+.parent .actions svg:first-child:not(:last-child) {
+  position: absolute;
+  left: 20%;
+  top: 25%;
+}
+
+/* Second Component */
+.parent .info {
+  height: 70%;
+  color: var(--pale-blue);
+  align-self: flex-end;
+  background-color: var(--dark-blue);
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+  width: 60%;
+}
+
+.parent .info .used {
+  position: absolute;
+  top: 30px;
+  left: calc(50% - 42.5%);
+}
+
+.parent .info .used span {
+  font-weight: bold;
+}
+
+.parent .info span:nth-child(2) {
+  position: absolute;
+  width: 85%;
+  height: 10px;
+  background-color: var(--very-dark-blue);
+  top: 60px;
+  left: calc(50% - 42.5%);
+  border-radius: 5px;
+}
+
+.parent .info span:nth-child(2)::before {
+  content: "0 GB";
+  position: absolute;
+  top: 15px;
+  font-size: 10px;
+}
+
+.parent .info span:nth-child(2)::after {
+  content: "1000 GB";
+  position: absolute;
+  top: 15px;
+  right: 0;
+  font-size: 10px;
+}
+
+.parent .info span:nth-child(3) {
+  position: absolute;
+  width: 60%;
+  height: 8px;
+  background: var(--gradient);
+  top: 61px;
+  left: calc(50% - 42.5% + 2px);
+  border-radius: 5px;
+}
+
+.parent .info span:nth-child(3)::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--pale-blue);
+  position: absolute;
+  right: 1px;
+  top: 0.5px;
+}
+
+.info .left {
+  position: absolute;
+  right: 7.5%;
+  top: -30px;
+  background-color: var(--pale-blue);
+  color: var(--very-dark-blue);
+  width: 120px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 10px;
+}
+
+.info .left p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.info .left::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: 0;
+  border: 20px solid;
+  border-color: var(--pale-blue) var(--pale-blue) transparent transparent;
+}
+
+/* Media Queries */
+/* Large */
+@media (min-width: 1250px) {
+  .parent .actions .icons {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .parent .actions svg:first-child:not(:last-child),
+  .parent .actions .icons {
+    left: 10%;
+  }
+
+  .parent .actions .icons {
+    width: 60%;
+  }
+}
+
+/* Medium */
+@media (max-width: 900px) {
+  .parent .main-content {
+    height: 375px;
+  }
+
+  .parent .actions {
+    width: 60%;
+    margin-left: 20%;
+    height: 200px;
+  }
+
+  .parent .info {
+    margin-left: 20%;
+    margin-top: 50px;
+    height: 30%;
+  }
+
+  .parent .actions .icons {
+    width: 50%;
+  }
+}
+
+/* Small */
+@media (max-width: 600px) {
+  .parent .actions .icons {
+    width: 60%;
+  }
+}
+
+@media (max-width: 500px) {
+  .parent .main-content {
+    width: 100%;
+  }
+
+  .parent .actions {
+    width: 80%;
+    margin-left: 10%;
+    height: 200px;
+  }
+
+  .parent .info {
+    margin-left: 10%;
+    height: 30%;
+    width: 80%;
+  }
+
+  .parent .actions .icons {
+    width: 45%;
+  }
+
+  .info .left {
+    top: 80%;
+    left: calc(50% - 60px);
+  }
+
+  .info .left::before {
+    display: none;
+  }
+}
